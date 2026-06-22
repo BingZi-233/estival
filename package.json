@@ -4,10 +4,10 @@
   "description": "Turn Claude Agent SDK skills into schema-enforced REST endpoints. Drop a SKILL.md, get an API.",
   "type": "module",
   "license": "MIT",
-  "homepage": "https://github.com/your-org/estival#readme",
+  "homepage": "https://github.com/BingZi-233/estival#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/your-org/estival.git"
+    "url": "git+https://github.com/BingZi-233/estival.git"
   },
   "keywords": [
     "claude",
