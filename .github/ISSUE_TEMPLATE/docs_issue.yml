@@ -1,0 +1,26 @@
+name: 📖 Documentation Issue
+description: Report wrong, missing, or unclear documentation (README or Wiki).
+title: "[Docs]: "
+labels: ["documentation"]
+body:
+  - type: input
+    id: location
+    attributes:
+      label: Where?
+      description: Page/section URL or file path (README, Wiki page, code comment).
+      placeholder: "Wiki → MCP & Tools, 'Request headers → tool env'"
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What's wrong or missing?
+    validations:
+      required: true
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: Suggested fix
+      description: Optional — proposed wording or the missing detail.
+    validations:
+      required: false

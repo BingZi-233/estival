@@ -1,0 +1,9 @@
+# Disable blank issues — force everyone through a structured form.
+blank_issues_enabled: false
+contact_links:
+  - name: 📖 Documentation / Wiki
+    url: https://github.com/BingZi-233/estival/wiki
+    about: Read the docs first — most "how do I…" answers live here.
+  - name: 💬 Questions & Discussion
+    url: https://github.com/BingZi-233/estival/discussions
+    about: Open-ended questions and ideas belong in Discussions, not Issues.

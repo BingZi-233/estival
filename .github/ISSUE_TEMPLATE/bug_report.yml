@@ -1,0 +1,84 @@
+name: 🐛 Bug Report
+description: Something doesn't work as documented. Report a reproducible defect.
+title: "[Bug]: "
+labels: ["bug", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the report. **Fill every required field** — issues missing
+        reproduction steps or version info will be closed as not actionable.
+        Search [existing issues](https://github.com/BingZi-233/estival/issues?q=is%3Aissue) first.
+  - type: checkboxes
+    id: preflight
+    attributes:
+      label: Pre-flight checks
+      options:
+        - label: I searched existing issues and this is not a duplicate.
+          required: true
+        - label: I read the relevant [Wiki](https://github.com/BingZi-233/estival/wiki) page.
+          required: true
+        - label: This is a reproducible bug, not a usage question (those go to Discussions).
+          required: true
+  - type: textarea
+    id: summary
+    attributes:
+      label: What happened?
+      description: Clear description of the bug and what you expected instead.
+      placeholder: "Calling POST /skills/foo returns 500, but I expected the validated JSON."
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      description: Exact, minimal steps. Include the `SKILL.md` frontmatter and the request if relevant.
+      placeholder: |
+        1. SKILL.md frontmatter: ...
+        2. curl -X POST localhost:3000/skills/... -d '...'
+        3. See error
+      render: shell
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behaviour
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant logs
+      description: Boot log + the failing request lines. Set `LOG_LEVEL=debug` for detail. **Redact secrets/tokens.**
+      render: shell
+    validations:
+      required: false
+  - type: input
+    id: version
+    attributes:
+      label: Estival version
+      description: "`npx estival --help` header, or the version in package.json / your lockfile."
+      placeholder: "0.1.0"
+    validations:
+      required: true
+  - type: dropdown
+    id: install
+    attributes:
+      label: How are you running it?
+      options:
+        - "npx estival"
+        - "pnpm dependency"
+        - "Docker / docker compose"
+        - "From source (cloned repo)"
+        - "Other (describe above)"
+    validations:
+      required: true
+  - type: input
+    id: env
+    attributes:
+      label: Environment
+      description: Node version + OS (and DB if async tasks are involved).
+      placeholder: "Node 22.16, macOS 15, Postgres 16"
+    validations:
+      required: true

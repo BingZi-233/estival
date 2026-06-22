@@ -1,0 +1,47 @@
+name: ✨ Feature Request
+description: Propose a new capability or enhancement for the framework.
+title: "[Feature]: "
+labels: ["enhancement", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Propose **framework** changes here. Ideas for your own skills/MCP servers are
+        usage, not framework features — those go to Discussions.
+  - type: checkboxes
+    id: preflight
+    attributes:
+      label: Pre-flight checks
+      options:
+        - label: I searched existing issues/discussions and this is not a duplicate.
+          required: true
+        - label: This is a change to the framework itself, not to my own skill.
+          required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem / motivation
+      description: What are you trying to do that Estival makes hard or impossible today?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: Concrete API/behaviour you'd want. Sketch the SKILL.md / endpoint / env if relevant.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Workarounds you tried, and why they fall short.
+    validations:
+      required: false
+  - type: checkboxes
+    id: contribute
+    attributes:
+      label: Contribution
+      options:
+        - label: I'm willing to open a PR for this.
+          required: false
