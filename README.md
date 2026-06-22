@@ -6,9 +6,17 @@
 
 Drop a `SKILL.md`, get an API.
 
+[![LINUX DO](https://img.shields.io/badge/LINUX_DO-社区认可-4A90D9?logo=discourse&logoColor=white)](https://linux.do)
+[![License](https://img.shields.io/github/license/BingZi-233/estival?color=4A90D9)](https://github.com/BingZi-233/estival/blob/main/LICENSE)
+[![Stars](https://img.shields.io/github/stars/BingZi-233/estival?color=EAC54F&logo=github)](https://github.com/BingZi-233/estival/stargazers)
+[![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org)
+[![Node](https://img.shields.io/badge/Node-%3E%3D18-339933?logo=nodedotjs&logoColor=white)](https://nodejs.org)
+
 English | [简体中文](./README.zh-CN.md)
 
 </div>
+
+> Incubated and endorsed by the [LINUX DO](https://linux.do) community.
 
 ---
 
