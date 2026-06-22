@@ -1,0 +1,75 @@
+{
+  "name": "estival",
+  "version": "0.1.0",
+  "description": "Turn Claude Agent SDK skills into schema-enforced REST endpoints. Drop a SKILL.md, get an API.",
+  "type": "module",
+  "license": "MIT",
+  "homepage": "https://github.com/your-org/estival#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/your-org/estival.git"
+  },
+  "keywords": [
+    "claude",
+    "claude-agent-sdk",
+    "agent",
+    "llm",
+    "skills",
+    "rest",
+    "framework",
+    "mcp",
+    "express"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "bin": {
+    "estival": "bin/estival.mjs"
+  },
+  "exports": {
+    ".": "./src/index.ts",
+    "./agent": "./src/agent.ts",
+    "./skill-registry": "./src/skill-registry.ts",
+    "./types": "./src/types.ts"
+  },
+  "files": [
+    "src",
+    "bin",
+    "examples",
+    ".env.example",
+    "README.md",
+    "README.zh-CN.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "start": "node --import tsx/esm src/index.ts",
+    "dev": "node --import tsx/esm --watch src/index.ts",
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "@anthropic-ai/claude-agent-sdk": "0.3.177",
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "dotenv": "^17.4.2",
+    "express": "^4.21.2",
+    "js-yaml": "^4.1.0",
+    "multer": "^2.2.0",
+    "pg": "^8.21.0",
+    "tsx": "^4.19.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/express": "^4.17.21",
+    "@types/js-yaml": "^4.0.9",
+    "@types/multer": "^2.1.0",
+    "@types/node": "^22.0.0",
+    "@types/pg": "^8.20.0",
+    "eslint": "^10.5.0",
+    "typescript": "^5.7.0",
+    "typescript-eslint": "^8.61.0",
+    "vitest": "^3.0.0"
+  }
+}

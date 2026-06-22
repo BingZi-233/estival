@@ -1,0 +1,41 @@
+# estival — minimal deployment.
+#
+# The image is a pure engine; your skills live in ./.claude, mounted read-only so
+# editing a skill needs no rebuild. Auth lives in ./claude-config, mounted into the
+# container's CLAUDE_CONFIG_DIR.
+#
+#   docker compose up --build          # estival only (sync + stream endpoints)
+#   docker compose --profile db up      # also start postgres for async tasks
+services:
+  estival:
+    build: .
+    image: estival:latest
+    restart: unless-stopped
+    ports:
+      - "${PORT:-3000}:3000"
+    env_file:
+      - .env
+    environment:
+      CLAUDE_CONFIG_DIR: /config
+      # Uncomment to enable async tasks against the bundled postgres (profile: db).
+      # DATABASE_URL: postgres://${POSTGRES_USER:-estival}:${POSTGRES_PASSWORD:-estival}@postgres:5432/${POSTGRES_DB:-estival}
+    volumes:
+      # Business config (skills + optional .claude/mcp.json), read-only.
+      - ./.claude:/app/.claude:ro
+      # Claude Agent SDK credentials/settings.
+      - ./claude-config:/config:ro
+
+  # Optional: async task store. Enable with `--profile db`.
+  postgres:
+    image: postgres:16-alpine
+    profiles: ["db"]
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-estival}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-estival}
+      POSTGRES_DB: ${POSTGRES_DB:-estival}
+    volumes:
+      - estival-pgdata:/var/lib/postgresql/data
+
+volumes:
+  estival-pgdata:

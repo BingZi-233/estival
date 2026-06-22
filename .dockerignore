@@ -1,0 +1,30 @@
+# Exclude node_modules: force an in-image reinstall to get CLI / esbuild / tsx
+# binaries matching the image arch/libc (the host may be macOS or a different arch).
+node_modules
+**/node_modules
+
+# VCS and editor cruft.
+.git
+.gitignore
+.vscode
+.idea
+
+# Secrets and local config — never bake into the image (injected at runtime via env/mount).
+.env
+.env.*
+
+# The image is a pure engine: business config (.claude) is mounted at runtime, not baked.
+.claude
+examples
+
+# Build output / logs / docs.
+dist
+*.log
+docs
+README*.md
+
+# Tests and deploy artifacts don't belong in the build context.
+**/*.test.ts
+Dockerfile
+.dockerignore
+docker-compose.yml

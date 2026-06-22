@@ -1,0 +1,17 @@
+.env
+node_modules/
+dist/
+*.log
+servers.json
+
+# Python(mcp/ 下的 stdio/HTTP server)字节码缓存。
+__pycache__/
+*.pyc
+
+.codegraph/
+
+# Docker 部署：CLAUDE_CONFIG_DIR 挂载目录。真 settings.json 含 token，且 CLI 运行期
+# 会往此目录写 sessions/projects 等，均不入库；仅放行模板。
+/claude-config/*
+!/claude-config/settings.json.example
+
